@@ -1,10 +1,36 @@
 package com.techelevator.application;
 
+import com.techelevator.ui.UserInput;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class MorseCode {
-    public Map<String, String> translate() {
+
+    private UserInput userInput = new UserInput();
+
+    public void run() {
+        while (true) {
+            userInput.promptForInput();
+        }
+        
+    }
+
+
+    public String translateInput(String input, Map<String, String> map) {
+        String morseCodeString = "";
+        input = userInput.promptForInput();
+
+
+
+        return morseCodeString;
+    }
+
+
+
+
+
+    public Map<String, String> morseCodeChart() {
         Map<String, String> morseCodeToText = new HashMap<>();
         morseCodeToText.put("._", "a");
         morseCodeToText.put("-...", "b");
