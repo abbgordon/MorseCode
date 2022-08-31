@@ -20,9 +20,31 @@ public class UserInput {
         String selectedOption = scanner.nextLine();
         String option = selectedOption.trim().toLowerCase();
         //System.out.println("option = " + option);
-        if (option.equals("y")) {
+        if (option.equalsIgnoreCase("y")) {
             return "yes";
-        } else if (option.equals("n")) {
+        } else if (option.equalsIgnoreCase("n")) {
+            return "no";
+        } else {
+            return "";
+        }
+    }
+
+    public static String displaySubScreen() {
+        System.out.println("Would you like to enter something else?");
+        System.out.println();
+
+        System.out.println("Y) Yes");
+        System.out.println("N) No");
+
+        System.out.println();
+        System.out.print("Please select an option: ");
+
+        String selectedOption = scanner.nextLine();
+        String option = selectedOption.trim().toLowerCase();
+        //System.out.println("option = " + option);
+        if (option.equalsIgnoreCase("y")) {
+            return "yes";
+        } else if (option.equalsIgnoreCase("n")) {
             return "no";
         } else {
             return "";
@@ -30,16 +52,16 @@ public class UserInput {
     }
 
     public static String promptForInput() {
+        System.out.println();
         System.out.println("     ------ MORSE CODE CONVERTER ------");
         System.out.println("Please enter a word or sentence to be converted");
 
         String inputString = scanner.nextLine();
 
-//        String[] wordsArray = inputString.split(" ");
 
 
 
-        return inputString;
+        return inputString.toLowerCase();
     }
 
 }

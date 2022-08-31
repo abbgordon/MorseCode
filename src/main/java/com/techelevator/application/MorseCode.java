@@ -17,7 +17,8 @@ public class MorseCode {
             String choice = UserInput.getHomeScreenOption();
             //System.out.println(choice);
             if (choice.equals("yes")) {
-                System.out.println(translateInput(userInput.promptForInput(), morseCodeChart()));
+                System.out.println("\n" + translateInput(userInput.promptForInput(), morseCodeChart()) + "\n");
+                subScreen();
             } else if (choice.equals("no")) {
                 // good bye
                 break;
@@ -27,11 +28,10 @@ public class MorseCode {
     }
 
 
-    public String translateInput(String input, Map<String, String> map) {
+    public String translateInput(String input, Map<String, String> map) {   // abc
         String morseCodeString = "";
 
         for (int i = 0; i < input.length(); i++) {
-
                 if(map.containsKey(String.valueOf(input.charAt(i)))) {
                     morseCodeString += map.get(String.valueOf(input.charAt(i))) + " ";
                 } else if(String.valueOf(input.charAt(i)).equals(" ")) {
@@ -41,22 +41,16 @@ public class MorseCode {
         return morseCodeString;
     }
 
-   /* public static void englishToMorse(String[] code,
-                                      String englishLang,
-                                      char[] letter)
-    {
-        System.out.print("Morse code of " + englishLang
-                + " is ");
-        for (int i = 0; i < englishLang.length(); i++) {
-            for (int j = 0; j < letter.length; j++) {
-                if (englishLang.charAt(i) == letter[j]) {
-                    System.out.print(code[j] + " ");
-                    break;
-                }
+    public void subScreen() {
+        while(true) {
+            String choice = userInput.displaySubScreen();
+            if(choice.equals("yes")) {
+                System.out.println(translateInput(userInput.promptForInput(), morseCodeChart()));
+            } else if(choice.equals("no")) {
+                System.exit(0);
             }
         }
-    }*/
-
+    }
 
 
     public Map<String, String> morseCodeChart() {
@@ -87,6 +81,16 @@ public class MorseCode {
         morseCodeToText.put("x", "-..-");
         morseCodeToText.put("y", "-.--");
         morseCodeToText.put("z", "--..");
+        morseCodeToText.put("1", ".----");
+        morseCodeToText.put("2", "..---");
+        morseCodeToText.put("3", "...--");
+        morseCodeToText.put("4", "....-");
+        morseCodeToText.put("5", ".....");
+        morseCodeToText.put("6", "-....");
+        morseCodeToText.put("7", "--...");
+        morseCodeToText.put("8", "---..");
+        morseCodeToText.put("9", "----.");
+        morseCodeToText.put("0", "-----");
 
         return morseCodeToText;
     }
